@@ -102,3 +102,16 @@ dist
 
 # TernJS port file
 .tern-port
+
+.idea/
+node_modules/
+coverage/
+**/*.js
+!knexfile.js
+!ecosystem.config.js
+!test/**/*.js
+!seeds/**/*.js
+!migrations/**/*.js
+.env
+logs/*
+.DS_Store
