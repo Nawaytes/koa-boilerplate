@@ -1,58 +1,58 @@
 // @ts-ignore
-import * as Validator from 'fastest-validator';
-import {appConfig} from '../../config/app';
-import {ApplicationError} from '../helper/error_handler';
+import Validator from 'fastest-validator'
+import { appConfig } from '../../config/app'
+import { ApplicationError } from '../helper/error_handler'
 
 // @ts-ignore
 const v = new Validator({
-    messages: appConfig.validation_message
-});
+    messages: appConfig.validation_message,
+})
 
 export const validator = {
     query: (schema) => {
-        const compiledSchema = v.compile(schema);
+        const compiledSchema = v.compile(schema)
         return async (ctx, next) => {
-            const result = compiledSchema(ctx.query);
+            const result = compiledSchema(ctx.query)
 
             if (Array.isArray(result)) {
                 throw new ApplicationError({
                     message: 'Validation Error',
                     type: 'QueryValidationError',
-                    detail: result
-                });
+                    detail: result,
+                })
             } else {
-                await next();
+                await next()
             }
-        };
+        }
     },
     body: (schema) => {
-        const compiledSchema = v.compile(schema);
+        const compiledSchema = v.compile(schema)
         return async (ctx, next) => {
-            const result = compiledSchema(ctx.request.body);
+            const result = compiledSchema(ctx.request.body)
             if (Array.isArray(result)) {
                 throw new ApplicationError({
                     message: 'Validation Error',
                     type: 'BodyValidationError',
-                    detail: result
-                });
+                    detail: result,
+                })
             } else {
-                await next();
+                await next()
             }
-        };
+        }
     },
     params: (schema) => {
-        const compiledSchema = v.compile(schema);
+        const compiledSchema = v.compile(schema)
         return async (ctx, next) => {
-            const result = compiledSchema(ctx.params);
+            const result = compiledSchema(ctx.params)
             if (Array.isArray(result)) {
                 throw new ApplicationError({
                     message: 'Validation Error',
                     type: 'ParamsValidationError',
-                    detail: result
-                });
+                    detail: result,
+                })
             } else {
-                await next();
+                await next()
             }
-        };
+        }
     },
-};
+}
