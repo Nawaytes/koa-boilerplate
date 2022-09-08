@@ -77,7 +77,9 @@ export function attachLogger(app) {
             responseData.duration = Date.now() - startTime
 
             const level = levelFn.call(ctx, ctx.status, err)
-
+            if (process.env.NODE_ENV === 'test') {
+                return
+            }
             httpLog[level](
                 {
                     method: ctx.request.method,
