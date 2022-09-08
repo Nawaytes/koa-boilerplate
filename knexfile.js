@@ -8,7 +8,7 @@ module.exports = {
         connection: {
             host: process.env.DB_HOST,
             database: process.env.DB_NAME,
-            user:     process.env.DB_USERNAME,
+            user: process.env.DB_USERNAME,
             password: process.env.DB_PASSWORD
         },
         migrations: {
@@ -17,16 +17,21 @@ module.exports = {
     },
 
     test: {
-        client: process.env.DB_CLIENT,
+        client: 'sqlite3',
         connection: {
-            host: process.env.DB_HOST,
-            database: process.env.DB_NAME,
-            user:     process.env.DB_USERNAME,
-            password: process.env.DB_PASSWORD
+            filename: "file:memDb1?mode=memory&cache=shared",
+            flags: ['OPEN_URI', 'OPEN_SHAREDCACHE']
         },
+        // connection: { filename: './tmp/test.sqlite3' },
         migrations: {
-            tableName: 'knex_migrations'
-        }
+            tableName: 'knex_migrations',
+        },
+        pool: {
+            min: 2,
+            max: 10,
+        },
+        useNullAsDefault: true,
+        // recursiveStringcase: () => true
     },
 
 
@@ -34,7 +39,7 @@ module.exports = {
         client: 'postgresql',
         connection: {
             database: 'my_db',
-            user:     'username',
+            user: 'username',
             password: 'password'
         },
         pool: {
@@ -51,7 +56,7 @@ module.exports = {
         connection: {
             host: process.env.DB_HOST,
             database: process.env.DB_NAME,
-            user:     process.env.DB_USERNAME,
+            user: process.env.DB_USERNAME,
             password: process.env.DB_PASSWORD
         },
         pool: {
