@@ -1,12 +1,12 @@
 {
-  "compilerOptions": {
-      "module": "commonjs",
-      "target": "es6",
-      "inlineSourceMap": true,
-      "experimentalDecorators": true,
-      "skipLibCheck": true,
-      "resolveJsonModule": true,
-      "esModuleInterop": true
-  },
-  "exclude": ["node_modules", "test/**/*.test.ts"]
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "inlineSourceMap": true,
+        "experimentalDecorators": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true
+    },
+    "exclude": ["node_modules", "test/**/*.test.ts"]
 }
