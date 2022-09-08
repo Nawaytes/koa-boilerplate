@@ -1,6 +1,6 @@
 {
-  "name": "backend-boilerplate",
-  "version": "1.0.0",
+  "name": "koa-boilerplate",
+  "version": "o.0.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -23,6 +23,11 @@
   "dependencies": {
     "@knax/objection-soft-delete": "^1.0.8",
     "@koa/cors": "^3.4.1",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/lodash": "^4.14.184",
+    "@types/supertest": "^2.0.12",
+    "@vscode/sqlite3": "^5.0.8",
+    "argon2": "^0.29.1",
     "cron": "^2.1.0",
     "dotenv": "^16.0.2",
     "fastest-validator": "^1.15.0",
@@ -33,6 +38,7 @@
     "koa-body": "^5.0.0",
     "koa-jwt": "^4.0.3",
     "koa-router": "^12.0.0",
+    "lodash": "^4.17.21",
     "luxon": "^3.0.3",
     "mysql": "^2.18.1",
     "objection": "^3.0.1",
@@ -41,18 +47,22 @@
     "pg": "^8.8.0",
     "pino": "^8.5.0",
     "pino-pretty": "^9.1.0",
+    "sqlite3": "^5.0.11",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@types/cron": "^2.0.0",
     "@types/dotenv": "^8.2.0",
+    "@types/jest": "^29.0.0",
     "@types/koa-router": "^7.4.4",
     "@types/luxon": "^3.0.1",
     "@types/on-finished": "^2.3.1",
     "@types/pino": "^7.0.5",
     "@types/uuid": "^8.3.4",
-    "jest": "^29.0.2",
     "nodemon": "^2.0.19",
     "supertest": "^6.2.4",
+    "ts-jest": "^28.0.8",
+    "ts-node": "^10.9.1",
     "typescript": "^4.8.2"
   },
   "jest": {
