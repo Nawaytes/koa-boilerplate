@@ -1,11 +1,11 @@
 // @ts-ignore
-import * as Validator from 'fastest-validator';
-import {appConfig} from '../../config/app';
-import {ApplicationError} from '../helper/error_handler';
+import Validator from "fastest-validator";
+import { appConfig } from "../../config/app";
+import { ApplicationError } from "../helper/error_handler";
 
 // @ts-ignore
 const v = new Validator({
-    messages: appConfig.validation_message
+    messages: appConfig.validation_message,
 });
 
 export const validator = {
@@ -16,9 +16,9 @@ export const validator = {
 
             if (Array.isArray(result)) {
                 throw new ApplicationError({
-                    message: 'Validation Error',
-                    type: 'QueryValidationError',
-                    detail: result
+                    message: "Validation Error",
+                    type: "QueryValidationError",
+                    detail: result,
                 });
             } else {
                 await next();
@@ -31,9 +31,9 @@ export const validator = {
             const result = compiledSchema(ctx.request.body);
             if (Array.isArray(result)) {
                 throw new ApplicationError({
-                    message: 'Validation Error',
-                    type: 'BodyValidationError',
-                    detail: result
+                    message: "Validation Error",
+                    type: "BodyValidationError",
+                    detail: result,
                 });
             } else {
                 await next();
@@ -46,9 +46,9 @@ export const validator = {
             const result = compiledSchema(ctx.params);
             if (Array.isArray(result)) {
                 throw new ApplicationError({
-                    message: 'Validation Error',
-                    type: 'ParamsValidationError',
-                    detail: result
+                    message: "Validation Error",
+                    type: "ParamsValidationError",
+                    detail: result,
                 });
             } else {
                 await next();
