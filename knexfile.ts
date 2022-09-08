@@ -1,7 +1,7 @@
 // Update with your config settings.
 require('dotenv').config()
 
-module.exports = {
+const knexConfig = {
     development: {
         client: process.env.DB_CLIENT,
         connection: {
@@ -66,3 +66,5 @@ module.exports = {
         },
     },
 }
+
+export default knexConfig

@@ -2,20 +2,10 @@ import Knex from 'knex'
 import { DateTime } from 'luxon'
 import { Model } from 'objection'
 import uuid from 'uuid'
-// import  softDelete from '@knax/objection-soft-delete';
+import knexConfig from '../../knexfile'
 
-// let extendedModel = softDelete({
-//     columnName: 'deleted_at',
-//     deletedValue: () => DateTime.local().toISO(),
-//     notDeletedValue: null
-// })(Model);
-//
-// tslint:disable:no-var-requires
-const knex = Knex(
-    require('../../knexfile')[process.env.NODE_ENV || 'development']
-)
-//
-// extendedModel.knex(knex);
+const knex = Knex(knexConfig[process.env.NODE_ENV || 'development'])
+
 Model.knex(knex)
 export default class BaseModel extends Model {
     public id: string
