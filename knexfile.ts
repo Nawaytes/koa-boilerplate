@@ -1,18 +1,21 @@
-// Update with your config settings.
-require('dotenv').config()
+import type { Knex } from 'knex'
 
-const knexConfig = {
+// Update with your config settings.
+
+const config: { [key: string]: Knex.Config } = {
     development: {
-        client: process.env.DB_CLIENT,
+        client: 'sqlite3',
         connection: {
-            host: process.env.DB_HOST,
-            database: process.env.DB_NAME,
-            user: process.env.DB_USERNAME,
-            password: process.env.DB_PASSWORD,
+            filename: './dev.sqlite3',
+        },
+        pool: {
+            min: 2,
+            max: 10,
         },
         migrations: {
             tableName: 'knex_migrations',
         },
+        useNullAsDefault: true,
     },
 
     test: {
@@ -50,12 +53,11 @@ const knexConfig = {
     },
 
     production: {
-        client: process.env.DB_CLIENT,
+        client: 'postgresql',
         connection: {
-            host: process.env.DB_HOST,
-            database: process.env.DB_NAME,
-            user: process.env.DB_USERNAME,
-            password: process.env.DB_PASSWORD,
+            database: 'my_db',
+            user: 'username',
+            password: 'password',
         },
         pool: {
             min: 2,
@@ -67,4 +69,4 @@ const knexConfig = {
     },
 }
 
-export default knexConfig
+module.exports = config
