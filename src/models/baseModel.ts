@@ -2,7 +2,7 @@ import Knex from 'knex'
 import { DateTime } from 'luxon'
 import { Model } from 'objection'
 import uuid from 'uuid'
-import knexConfig from '../../knexfile'
+import knexConfig = require('../../knexfile')
 
 const knex = Knex(knexConfig[process.env.NODE_ENV || 'development'])
 
@@ -14,10 +14,10 @@ export default class BaseModel extends Model {
     public updated_at: string
     public deleted_at: string
 
-    public $beforeInsert() {
-        this.id = this.id || uuid.v4()
-        this.created_at = DateTime.local().toISO()
-    }
+    // public $beforeInsert() {
+    //     this.id = this.id || uuid.v4()
+    //     this.created_at = DateTime.local().toISO()
+    // }
 
     public $beforeUpdate() {
         this.updated_at = DateTime.local().toISO()
