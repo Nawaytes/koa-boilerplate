@@ -114,3 +114,7 @@ coverage/
 .env
 logs/*
 .DS_Store
+build/
+.env*local
+uploads/*
+!uploads/.gitkeep
