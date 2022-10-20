@@ -8,5 +8,5 @@
         "resolveJsonModule": true,
         "esModuleInterop": true
     },
-    "exclude": ["node_modules", "test/**/*.test.ts"]
+    "exclude": ["node_modules", "migrations", "seeds", "test"]
 }
