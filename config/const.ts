@@ -1,1 +1,3 @@
-export const constants = {}
+export enum constants {
+    VERSION = 'v1',
+}

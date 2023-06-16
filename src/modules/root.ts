@@ -1,9 +1,7 @@
-import { module } from '../decorator/module'
-import { del, get, post, put } from '../decorator/route'
-import { createModuleLogger } from '../helper/logger'
-import { validator } from '../middleware/validation'
 import Koa from 'koa'
-const packageJson = require('../../package.json')
+import { module } from '../decorator/module'
+import { get } from '../decorator/route'
+import { constants } from '../../config/const'
 
 @module('/')
 export default class RootModule {
@@ -11,7 +9,7 @@ export default class RootModule {
     public async get(ctx: Koa.DefaultContext) {
         ctx.body = {
             message: 'API is running',
-            version: packageJson.version,
+            version: constants.VERSION,
         }
     }
 }

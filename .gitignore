@@ -118,3 +118,5 @@ build/
 .env*local
 uploads/*
 !uploads/.gitkeep
+
+*.sqlite3

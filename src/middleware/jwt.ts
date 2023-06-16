@@ -50,7 +50,7 @@ export function jwtMiddleware(isOptional = false, need_permissions = []) {
 
         try {
             decodedToken = jwt.verify(token, process.env.SECRET, {
-                issuer: 'Polishmall-Travel-API',
+                issuer: appConfig.name,
             })
         } catch (err) {
             if (err.name === 'TokenExpiredError') {

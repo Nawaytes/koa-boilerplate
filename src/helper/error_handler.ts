@@ -1,4 +1,3 @@
-import { appConfig } from '../../config/app'
 import { log } from './logger'
 
 const errorTypeHttpCode = {
