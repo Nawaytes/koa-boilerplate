@@ -1,7 +1,6 @@
 import onFinished from 'on-finished'
 import pino from 'pino'
 import util from 'util'
-import { appConfig } from '../../config/app'
 
 export const log = pino()
 

@@ -1,9 +1,8 @@
 // tslint:disable:no-var-requires
-const packageJson = require('../package.json')
 
 export const appConfig = {
-    name: packageJson.name,
-    port: process.env.PORT,
+    name: process.env.APP_NAME || 'KOA-BOILERPLATE',
+    port: process.env.PORT || 3000,
     secret: process.env.SECRET,
     upload_dir: __dirname + '/../uploads',
     validation_message: {
