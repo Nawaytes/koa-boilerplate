@@ -1,84 +1,93 @@
-# backend-node
+![Header Image](https://miro.medium.com/v2/resize:fit:1140/1*_SEhpSaIh7-l1jV-yFgeDQ.jpeg)
+<p align="center">
+  <img src="https://google.github.io/sqlcommenter/images/knex-logo.png" height="50px">
+  <img src="https://raw.githubusercontent.com/kelektiv/node-cron/HEAD/logo.svg" height="50px">
+  <img src="https://unicframework.github.io/validator/logo.jpg" height="50px">
+  <img src="https://img.stackshare.io/service/6191/oDM0j5q0_400x400.png" height="50px">
+  <img src="https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.png" height="50px">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png" height="50px">
+</p>
 
-## pre requisite
-- install [Node.JS](https://nodejs.org/en/download/)
-- install nvm
-- install npm
-- run `npm install`
+# Backend Node
 
-## build
-`npm run build`
+## Introduction
+Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs. By leveraging async functions, Koa allows you to ditch callbacks and greatly increase error-handling. Koa does not bundle any middleware within its core, and it provides an elegant suite of methods that make writing servers fast and enjoyable.
 
-## start the server
-`npm run start`
+This repository contains the backend code for a Node.js project.
 
-## start the server (automatic restart)
-`npm run dev:watch` 
+## Prerequisites
+- Install [Node.js](https://nodejs.org/en/download/)
+- Install `nvm`
+- Install `npm`
+- Run `npm install`
 
-## run test case
-`npm run test`
+## Technologies Used
 
-## migration
-### Create a migration file in ts
-`npx knex migrate:make migration_name -x ts`
-### run migration
+- **Node.js v16** - Official website: [https://nodejs.org](https://nodejs.org)
+- **Koa.js** - Official website: [https://koajs.com/](https://koajs.com/)
+- **Koa.js Documentation**: [https://devdocs.io/koa/](https://devdocs.io/koa/)
+- **ORM: Knex.js** - Official website: [https://knexjs.org/](https://knexjs.org/)
+- **ORM: Objection.js** - Official website: [https://vincit.github.io/objection.js/](https://vincit.github.io/objection.js/)
+- **Express**
+- **Validation: Fastest Validator** - [https://www.npmjs.com/package/fastest-validator](https://www.npmjs.com/package/fastest-validator)
 
-Once you have finished writing the migrations, you can update the database matching your NODE_ENV by running:
+## Build
+Run the following command to build the project:
 
-`npx knex migrate:latest`
+| height=100```shell
+npm run build
+| height=100```
 
-You can also pass the --env flag or set NODE_ENV to select an alternative environment:
+## Start the Server
+To start the server, run the following command:
 
-`npx knex migrate:latest --env production`
+| height=100```shell
+npm run start
+| height=100```
 
-`npx NODE_ENV=production knex migrate:latest`
+## Start the Server for Development
+To start the server in development mode, run the following command:
 
-To rollback the last batch of migrations:
+| height=100```shell
+npm run start:dev
+| height=100```
 
-`npx knex migrate:rollback`
+## Start the Server for Production
+To start the server in production mode, follow these steps:
 
-To rollback all the completed migrations:
+Run the following command:
+| height=100```shell
+npm ci
+| height=100```
 
-`npx knex migrate:rollback --all`
+Start the server by running:
+| height=100```shell
+npm run start:prod
+| height=100```
 
-To run the next migration that has not yet been run
+## Running Test Cases
+To run the test cases, use the following command:
 
-`npx knex migrate:up`
+| height=100```shell
+npm run test
+| height=100```
 
-To run the specified migration that has not yet been run
+## Migration
+### Create a Migration File in TypeScript
+To create a migration file, run the following command:
 
-`npx knex migrate:up 001_migration_name.js`
+| height=100```shell
+npx knex migrate:make migration_name
+| height=100```
 
-To undo the last migration that was run
+### Run Migrations
+Once you have finished writing the migrations, you can update the database matching your `NODE_ENV` by running:
 
-`npx knex migrate:down`
+| height=100```shell
+npx knex migrate:latest
+| height=100```
 
-To undo the specified migration that was run
+You can also pass the `--env` flag or set `NODE_ENV` to select an alternative environment:
 
-`npx knex migrate:down 001_migration_name.js`
-
-To list both completed and pending migrations:
-
-`npx knex migrate:list`
-
-## Seed files
-Seed files allow you to populate your database with test or seed data independent of your migration files.
-
-### Seed CLI
-To create a seed file, run:
-
-`npx knex seed:make seed_name`
-
-### To run seed files, execute:
-
-`npx knex seed:run`
-
-Seed files are executed in alphabetical order. Unlike migrations, every seed file will be executed when you run the command. You should design your seed files to reset tables as needed before inserting data.
-
-To run specific seed files, execute:
-
-`npx knex seed:run --specific=seed-filename.js --specific=another-seed-filename.js`
-
-## run on production
-- `npm ci`
-- `npm run start:prod`
+| height=100```shell
+npx knex migrate:latest --env production
